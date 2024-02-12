@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Celsius:"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_gravity="start"
+            android:layout_marginStart="30dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fahrenheit:"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:layout_marginStart="30dp"
+
+            />
+
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/currentCelsiusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0°C"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_gravity="left"/>
+    <TextView
+        android:id="@+id/currentFahrenheitTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0°F"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_gravity="left"/>
+
+
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <SeekBar
+            android:id="@+id/celsiusSeekBar"
+            style="@android:style/Widget.DeviceDefault.SeekBar"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="16dp"
+            android:scaleY="1.8"
+            android:scaleX="1.8"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:rotation="270" />
+
+        <SeekBar
+            android:id="@+id/fahrenheitSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_weight="1"
+            android:rotation="270"
+            android:scaleY="1.8"
+            android:scaleX="1.8"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/interestingMessageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result: "
+        android:layout_marginTop="50dp"
+        />
+</LinearLayout>
+    <!--Asked chatGPT how to make my seekbars vertical (just rotate them) -->
