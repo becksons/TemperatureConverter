@@ -63,32 +63,36 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="307dp"
         android:orientation="horizontal">
 
         <SeekBar
             android:id="@+id/celsiusSeekBar"
-            style="@android:style/Widget.DeviceDefault.SeekBar"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="300dp"
             android:layout_marginStart="16dp"
-            android:scaleY="1.8"
-            android:scaleX="1.8"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
-            android:rotation="270" />
+            android:clickable="false"
+            android:progressTint="#E52222"
+            android:rotation="270"
+            android:scaleX="1.8"
+            android:scaleY="1.8"
+            android:thumb="@android:drawable/ic_notification_overlay" />
 
         <SeekBar
             android:id="@+id/fahrenheitSeekBar"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="300dp"
-            android:layout_weight="1"
-            android:rotation="270"
-            android:scaleY="1.8"
-            android:scaleX="1.8"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            />
+            android:layout_weight="1"
+            android:clickable="false"
+            android:progressTint="#F44336"
+            android:rotation="270"
+            android:scaleX="1.8"
+            android:scaleY="1.8"
+            android:thumb="@android:drawable/ic_notification_overlay" />
     </LinearLayout>
 
     <TextView
@@ -98,5 +102,15 @@
         android:text="Result: "
         android:layout_marginTop="50dp"
         />
+    <ImageView
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/tempGif"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:contentDescription="gif">
+
+    </ImageView>
 </LinearLayout>
     <!--Asked chatGPT how to make my seekbars vertical (just rotate them) -->

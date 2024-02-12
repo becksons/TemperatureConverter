@@ -1,9 +1,11 @@
 package com.example.temperatureconverter
 
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         interestingMessageTextView = findViewById(R.id.interestingMessageTextView)
         currentCelsiusTextView = findViewById(R.id.currentCelsiusTextView)
         currentFahrenheitTextView = findViewById(R.id.currentFahrenheitTextView)
+        val tempGifImageView = findViewById<ImageView>(R.id.tempGif)
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.freezing_emoji) // Replace this with your GIF URL
+            .into(tempGifImageView)
 
         celsiusSeekBar.max = 100
         fahrenheitSeekBar.max = 212
@@ -61,10 +68,29 @@ class MainActivity : AppCompatActivity() {
     private fun updateTemperatures(celsius: Int, fahrenheit: Int) {
         currentCelsiusTextView.text = "${celsius}°C"
         currentFahrenheitTextView.text = "${fahrenheit}°F"
-        interestingMessageTextView.text = if (celsius < 20) {
-            "I wish it were warmer."
-        } else {
-            "I wish it were colder."
+        val lowerBound = 40 // 10 degrees below the midpoint
+        val upperBound = 60 // 10 degrees above the midpoint
+
+        interestingMessageTextView.text = when {
+            celsius < lowerBound -> "I wish it were warmer."
+            celsius > upperBound -> "I wish it were colder."
+            else -> "Just right"
         }
+        updateTemperatureGif(celsius)
+    }
+
+    private fun updateTemperatureGif(celsius: Int) {
+        val gifResource = when {
+            celsius <= 0 -> R.drawable.freezing_emoji
+            celsius in 1..10 -> R.drawable.freezing_emoji
+            celsius in 11 .. 30 -> R.drawable.happy_emoji
+            else -> R.drawable.sweaty_gif
+        }
+
+        Glide.with(this)
+            .asGif()
+            .load(gifResource)
+            .into(findViewById(R.id.tempGif))
     }
 }
+
