@@ -68,12 +68,12 @@ class MainActivity : AppCompatActivity() {
     private fun updateTemperatures(celsius: Int, fahrenheit: Int) {
         currentCelsiusTextView.text = "${celsius}°C"
         currentFahrenheitTextView.text = "${fahrenheit}°F"
-        val lowerBound = 40 // 10 degrees below the midpoint
-        val upperBound = 60 // 10 degrees above the midpoint
+        val lowerBound = 10 // 10 degrees below the midpoint
+        val upperBound = 30 // 10 degrees above the midpoint
 
         interestingMessageTextView.text = when {
-            celsius < lowerBound -> "I wish it were warmer."
-            celsius > upperBound -> "I wish it were colder."
+            celsius < lowerBound -> "I wish it was warmer."
+            celsius > upperBound -> "I wish it was cooler."
             else -> "Just right"
         }
         updateTemperatureGif(celsius)
